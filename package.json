@@ -1,0 +1,13 @@
+{
+  "name": "eve-ai",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.0.0",
+    "express": "^5.0.0",
+    "openai": "^6.0.0"
+  }
+}

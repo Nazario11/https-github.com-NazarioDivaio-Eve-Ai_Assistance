@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Eve — Personal AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-top">
+
+            <!-- BRAND -->
+            <div class="brand">
+
+                <div class="brand-orb">
+                    <span>E</span>
+                </div>
+
+                <div class="brand-text">
+                    <h1>Eve</h1>
+                    <p>Personal AI assistant</p>
+                </div>
+
+            </div>
+
+
+            <!-- NEW CHAT -->
+            <button
+                id="newChatButton"
+                class="new-chat"
+            >
+                <span class="plus">+</span>
+                <span>New conversation</span>
+            </button>
+
+
+            <!-- MODE -->
+            <div class="mode-section">
+
+                <div class="section-label">
+                    <span>MODE</span>
+                </div>
+
+                <select id="modeSelect">
+
+                    <option value="Default Eve">
+                        ✦ Default Eve
+                    </option>
+
+                    <option value="Tracking">
+                        ◈ Tracking
+                    </option>
+
+                    <option value="OSINT">
+                        ◌ OSINT
+                    </option>
+
+                    <option value="Technical Tracking">
+                        ◇ Technical Tracking
+                    </option>
+
+                    <option value="Study / Lecturer">
+                        📖 Study / Lecturer
+                    </option>
+
+                    <option value="Critical / Strategic">
+                        ♟ Critical / Strategic
+                    </option>
+
+                    <option value="Planning">
+                        ⌁ Planning
+                    </option>
+
+                    <option value="Writing">
+                        ✎ Writing
+                    </option>
+
+                    <option value="Research">
+                        ⌕ Research
+                    </option>
+
+                    <option value="Safety">
+                        ♡ Safety
+                    </option>
+
+                </select>
+
+                <div
+                    id="modeDescription"
+                    class="mode-description"
+                >
+                    General AI assistant for conversation and problem solving.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <div class="connection-card">
+
+                <div class="connection-icon">
+                    <span
+                        id="statusDot"
+                        class="status-dot"
+                    ></span>
+                </div>
+
+                <div class="connection-info">
+
+                    <strong id="statusText">
+                        Connecting...
+                    </strong>
+
+                    <span id="modelText">
+                        Checking server
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="clearButton"
+                class="clear-button"
+            >
+                <span>⌫</span>
+                Clear conversation
+            </button>
+
+
+            <div class="sidebar-footer">
+                Eve v1.0 • Local
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <div class="mobile-logo">
+                    E
+                </div>
+
+                <div>
+
+                    <div class="top-title">
+                        Eve
+                    </div>
+
+                    <div
+                        id="currentMode"
+                        class="top-mode"
+                    >
+                        Default Eve
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="online-pill">
+
+                    <span
+                        id="topStatusDot"
+                        class="top-status-dot"
+                    ></span>
+
+                    Online
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CHAT -->
+
+        <section
+            id="chatContainer"
+            class="chat-container"
+        >
+
+            <div
+                id="welcome"
+                class="welcome"
+            >
+
+                <div class="welcome-orb">
+
+                    <div class="welcome-letter">
+                        E
+                    </div>
+
+                </div>
+
+                <div class="welcome-eyebrow">
+                    PERSONAL AI ASSISTANT
+                </div>
+
+                <h2>
+                    What are we working on?
+                </h2>
+
+                <p>
+                    Think, study, research, plan,
+                    create, or just talk.
+                </p>
+
+
+                <div class="suggestion-grid">
+
+                    <button
+                        class="suggestion"
+                        data-message="Help me understand this topic from zero knowledge."
+                    >
+                        <span class="suggestion-icon">
+                            ◉
+                        </span>
+
+                        <span>
+                            Learn something
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="suggestion"
+                        data-message="Help me create a realistic plan for my week."
+                    >
+                        <span class="suggestion-icon">
+                            ⌁
+                        </span>
+
+                        <span>
+                            Plan my week
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="suggestion"
+                        data-message="Challenge my thinking and point out my blind spots."
+                    >
+                        <span class="suggestion-icon">
+                            ♟
+                        </span>
+
+                        <span>
+                            Challenge me
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="suggestion"
+                        data-message="Help me research a topic and separate facts from assumptions."
+                    >
+                        <span class="suggestion-icon">
+                            ⌕
+                        </span>
+
+                        <span>
+                            Research
+                        </span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMPOSER -->
+
+        <section class="composer">
+
+            <div class="composer-inner">
+
+                <form id="chatForm">
+
+                    <div class="input-wrapper">
+
+                        <textarea
+                            id="messageInput"
+                            placeholder="Message Eve..."
+                            rows="1"
+                        ></textarea>
+
+                        <div class="input-hint">
+                            Enter to send · Shift + Enter for new line
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        id="sendButton"
+                        class="send-button"
+                        type="submit"
+                    >
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+                </form>
+
+
+                <div class="composer-footer">
+
+                    <span>
+                        Eve can make mistakes. Verify important information.
+                    </span>
+
+                    <span class="secure-note">
+                        Local API connection
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
